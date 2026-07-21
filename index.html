@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GreenKeyEstates | Thackwood North Yorkshire Seaside Home</title>
+  <title>GreenEstates | Thackwood North Yorkshire Seaside Home</title>
   <style>
-    
     :root {
-      --primary: #1f7a5b;
-      --secondary: #f3f7f2;
-      --accent: #e7b77d;
-      --text: #1f2937;
-      --muted: #64748b;
+      --primary: #386a4f;
+      --secondary: #f7faf4;
+      --accent: #a3b18a;
+      --text: #1b352a;
+      --muted: #5d6c5b;
       --white: #ffffff;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
       font-family: Inter, system-ui, -apple-system, sans-serif;
@@ -23,7 +22,7 @@
 
     body {
       margin: 0;
-      background: #09131a;
+      background: linear-gradient(180deg, #f7fbf4 0%, #dbe7d5 100%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -44,15 +43,110 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
-      background: rgba(7, 15, 22, 0.72);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(14px);
       z-index: 10;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(56, 106, 79, 0.12);
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     header a,
     header nav a {
+      color: var(--text);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: flex-end;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      width: min(700px, 100%);
+      background: #ffffff;
+      border: 1px solid rgba(56, 106, 79, 0.15);
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(56, 106, 79, 0.08);
+      gap: 8px;
+      flex-wrap: wrap;
+      padding: 6px;
+    }
+
+    .search-form input {
+      border: none;
+      padding: 12px 16px;
+      width: 100%;
+      font-size: 0.95rem;
+      color: var(--text);
+      outline: none;
+      min-width: 130px;
+      background: transparent;
+    }
+
+    .search-form input#sitePostcode {
+      max-width: 130px;
+    }
+
+    .search-form button {
+      border: none;
+      background: var(--accent);
+      color: #1f2937;
+      padding: 0 18px;
+      height: 44px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .search-form button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(231, 183, 125, 0.24);
+    }
+
+    .top-contact,
+    .top-review {
       color: var(--white);
+      border: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(31, 122, 91, 0.18);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .top-contact {
+      background: var(--primary);
+    }
+
+    .top-review {
+      background: var(--accent);
+      color: #1f2937;
+      box-shadow: 0 14px 28px rgba(231, 183, 125, 0.22);
+    }
+
+    .top-contact:hover,
+    .top-review:hover {
+      transform: translateY(-1px);
+    }
+
+    .search-feedback {
+      width: 100%;
+      padding: 10px 32px;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(56, 106, 79, 0.1);
+      font-size: 0.95rem;
     }
 
     .brand {
@@ -84,19 +178,18 @@
       display: grid;
       gap: 32px;
       position: relative;
-      background: linear-gradient(180deg, rgba(3, 10, 16, 0.82) 0%, rgba(5, 12, 18, 0.62) 100%),
-        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80') no-repeat center / cover;
+      background: url('images/thackwood-second sea.jpg') no-repeat center / cover;
       border-radius: 32px;
       overflow: hidden;
-      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
+      box-shadow: 0 28px 90px rgba(34, 72, 51, 0.16);
+      border: 1px solid rgba(56, 106, 79, 0.12);
     }
 
     .hero::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top left, rgba(56, 180, 150, 0.14), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(231, 183, 125, 0.18), transparent 25%);
+      background: rgba(255, 255, 255, 0.05);
       pointer-events: none;
     }
 
@@ -113,14 +206,39 @@
 
     .hero-copy {
       max-width: 680px;
+      background: rgba(247, 250, 246, 0.95);
+      padding: 32px;
+      border-radius: 28px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 20px 50px rgba(34, 72, 51, 0.14);
+      border: 1px solid rgba(56, 106, 79, 0.12);
+      color: var(--text);
+    }
+
+    .hero-callout {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #e5f1dd;
+      border: 1px solid rgba(56, 106, 79, 0.14);
+      color: #2d4f34;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .hero-callout strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+      color: #1f3526;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(255,255,255,0.14);
-      color: var(--white);
+      background: rgba(56, 106, 79, 0.1);
+      color: var(--text);
       padding: 10px 14px;
       border-radius: 999px;
       font-size: 0.92rem;
@@ -131,11 +249,11 @@
       margin: 0;
       font-size: clamp(2.8rem, 3.8vw, 4.4rem);
       line-height: 0.95;
-      color: var(--white);
+      color: var(--text);
     }
 
     .hero-copy p {
-      color: rgba(255,255,255,0.82);
+      color: var(--text);
       font-size: 1.05rem;
       margin: 24px 0 0;
       max-width: 560px;
@@ -149,13 +267,13 @@
     }
 
     .stat {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(56, 106, 79, 0.12);
       border-radius: 18px;
       padding: 20px 20px;
-      backdrop-filter: blur(14px);
-      color: var(--white);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+      color: var(--text);
+      box-shadow: 0 20px 60px rgba(34, 72, 51, 0.12);
+      backdrop-filter: blur(18px);
     }
 
     .stat span {
@@ -178,7 +296,7 @@
       overflow: hidden;
       background: var(--white);
       box-shadow: var(--shadow);
-      border: 1px solid rgba(31, 46, 62, 0.08);
+      border: 1px solid rgba(56, 106, 79, 0.14);
     }
 
     .property-card .property-image {
@@ -224,17 +342,41 @@
       font-size: 0.95rem;
     }
 
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffe8c5;
+      color: #8b5f18;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 10px 16px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(231, 183, 125, 0.3);
+      box-shadow: 0 6px 18px rgba(231, 183, 125, 0.16);
+      width: fit-content;
+    }
+
     .price {
-      font-size: 2rem;
+      font-size: 2.6rem;
       margin: 0;
-      color: #16272b;
+      color: #1f3526;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 8px rgba(31, 46, 62, 0.12);
     }
 
     .description {
-      color: var(--muted);
+      color: #2f4f36;
       margin: 22px 0 0;
-      font-size: 1rem;
-      line-height: 1.8;
+      font-size: 1.05rem;
+      line-height: 1.9;
+      background: rgba(247, 250, 246, 0.96);
+      padding: 20px 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(56, 106, 79, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
     }
 
     .features {
@@ -281,12 +423,14 @@
 
     .contact-card {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 14px;
-      background: #fefefc;
-      padding: 20px 22px;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      background: rgba(247, 250, 246, 0.98);
+      padding: 22px 24px;
       border-radius: 22px;
-      border: 1px solid rgba(31, 46, 62, 0.08);
+      border: 1px solid rgba(56, 106, 79, 0.18);
+      box-shadow: 0 14px 32px rgba(56, 106, 79, 0.08);
+      color: #1f3526;
     }
 
     .contact-card strong {
@@ -294,21 +438,34 @@
       margin-bottom: 6px;
     }
 
+    .contact-card button {
+      justify-self: start;
+      width: fit-content;
+    }
+
+    .contact-card .contact-note {
+      margin-bottom: 12px;
+      color: #2f4f36;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
     .contact-button {
-      background: var(--primary);
+      background: var(--accent);
       border: none;
-      color: var(--white);
+      color: var(--text);
       border-radius: 14px;
-      padding: 14px 20px;
+      padding: 14px 22px;
       font-weight: 700;
       cursor: pointer;
-      transition: transform 160ms ease, box-shadow 160ms ease;
-      box-shadow: 0 14px 28px rgba(31, 122, 91, 0.18);
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      box-shadow: 0 16px 30px rgba(231, 183, 125, 0.22);
     }
 
     .contact-button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 32px rgba(31, 122, 91, 0.24);
+      background: #d3ad52;
+      box-shadow: 0 18px 36px rgba(231, 183, 125, 0.28);
     }
 
     .review-button {
@@ -336,13 +493,12 @@
     }
 
     .review-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: #f7faf4;
+      border: 1px solid rgba(56, 106, 79, 0.14);
       border-radius: 24px;
       padding: 26px;
-      backdrop-filter: blur(14px);
-      color: var(--white);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+      color: var(--text);
+      box-shadow: 0 18px 40px rgba(34, 72, 51, 0.08);
     }
 
     .review-header {
@@ -361,13 +517,13 @@
 
     .review-card p {
       margin: 0;
-      color: rgba(255,255,255,0.9);
+      color: var(--text);
       line-height: 1.8;
       font-size: 1rem;
     }
 
     .review-author {
-      color: rgba(255,255,255,0.7);
+      color: rgba(31, 46, 62, 0.75);
       margin-top: 12px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -409,6 +565,23 @@
       background: #e8f1ea;
       scroll-snap-align: start;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+      display: grid;
+      grid-template-rows: auto auto;
+    }
+
+    @media (min-width: 1100px) {
+      .scroll-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        overflow-x: hidden;
+        padding-bottom: 0;
+      }
+
+      .gallery-item {
+        min-width: auto;
+        scroll-snap-align: none;
+      }
     }
 
     .gallery-item img {
@@ -417,6 +590,75 @@
       object-fit: cover;
       aspect-ratio: 4 / 3;
       display: block;
+      cursor: zoom-in;
+      transition: transform 180ms ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item figcaption {
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #16272b;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(18, 44, 30, 0.78);
+      z-index: 50;
+      padding: 24px;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 28px 90px rgba(0, 0, 0, 0.28);
+    }
+
+    .image-modal-content img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      max-height: 90vh;
+      background: #f7fbf4;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(56, 106, 79, 0.92);
+      color: #ffffff;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    .image-modal-close:hover {
+      background: rgba(56, 106, 79, 1);
     }
 
     .section {
@@ -514,19 +756,33 @@
     <header>
       <a class="brand" href="#top">
         <span class="mark">G</span>
-        <span>GreenKeyEstates</span>
+        <span>GreenEstates</span>
       </a>
+      <div class="header-actions">
+        <form class="search-form" id="searchForm">
+          <input id="siteSearch" type="search" placeholder="Search homes on GreenEstates" aria-label="Search homes">
+          <input id="sitePostcode" type="text" placeholder="Postcode" aria-label="Search by postcode">
+          <button type="submit">Search</button>
+        </form>
+        <button class="top-contact" type="button" onclick="showContactEmail()">Contact me</button>
+        <a class="top-review" href="#reviews">Leave a review</a>
+      </div>
       <nav>
         <a href="#details" style="color: var(--text); text-decoration:none; font-weight:600;">Property</a>
       </nav>
     </header>
+    <div class="search-feedback" id="searchFeedback">Search for houses by name, feature, or location.</div>
+
 
     <main class="hero" id="top">
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Single property showcase</span>
           <h1>Thackwood: North Yorkshire seaside home in RobinHoodsBay with garden and room for 10+ cars.</h1>
-          <p>GreenKeyEstates presents Thackwood, an exclusive family residence in North Yorkshire with 5 bedrooms, 5 bathrooms, premium finishes, abundant natural light, and a private garden retreat.</p>
+          <p>GreenEstates presents Thackwood, an exclusive family residence in North Yorkshire with 5 bedrooms, 5 bathrooms, premium finishes, abundant natural light, and a private garden retreat.</p>
+          <div class="hero-callout">
+            <strong>Featured</strong> Property of the week: exceptional coastal views, spacious family living, and premium garden parking.
+          </div>
           <div class="hero-summary">
             <div class="stat">
               <strong>5 beds</strong>
@@ -549,18 +805,19 @@
 
         <article class="property-card" id="details">
           <div class="property-image">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="GreenKeyEstates property front view">
+            <img src="images/thackwood-front.jpg" alt="Thackwood front view">
           </div>
           <div class="property-details">
-            <h2>Thackwood, Mount Pleasant East, RobinHoodsBay, North Yorkshire, YO22 4RF</h2>
+            <h2>Thackwood, Mount Pleasant East, Robin Hoods Bay, North Yorkshire, YO22 4RF</h2>
             <div class="property-meta">
               <span class="badge">Detached</span>
               <span class="badge">Sea views</span>
               <span class="badge">Garden</span>
             </div>
+            <div class="price-badge">For sale</div>
             <p class="price">£1,000,000</p>
             <p class="description">
-              Beautiful Family Home In RobinHoodsBay, Thackwood, YO22 4RF. Situated in the peaceful village of Thackwood, this charming property offers the perfect combination of countryside living as well as modern comfort. The home features spacious, light-filled rooms, as well-equipped contempory kitchen, comfortable spacious bedrooms with on-suites attached to all.
+              Beautiful Family Home In Robin Hoods Bay, Thackwood, YO22 4RF. Situated in the peaceful village of Robin Hoods Bay, this charming property offers the perfect combination of countryside living as well as modern comfort. The home features spacious, light-filled rooms, as well-equipped contempory kitchen, comfortable spacious bedrooms with on-suites attached to all.
             </p>
             <p class="description">
               Outside, the property benefits from a huge private garden, ideal for relaxing, entertaining, or family activities, along with off-road parking (for 10+ cars). Surrounded by scenic countryside and sea views looking throughout the house, while remaining within easy reach of local amenities, schools, and transport links, this home is the perfect home for larger families, couples or anyone seeking a quieter lifestyle.
@@ -598,20 +855,19 @@
                 <span class="feature-icon">🚗</span>
                 <div>
                   <strong>Parking for 10+</strong>
-                  Expansive driveway, garage access, and guest parking for 10+ cars.
+                  Expansive driveway and guest parking for 10+ cars.
                 </div>
               </div>
             </div>
             <div class="contacts">
               <div class="contact-card">
                 <div>
-                  <strong>Book a viewing</strong>
-                  Speak with a GreenKeyEstates advisor and arrange a private tour.
+                  <strong>Contact</strong>
                 </div>
-                <div style="margin-bottom: 12px; color: #16272b; font-weight: 600;">
-                  Get in touch if interested — EMAIL-greenkeyestates@outlook.com
+                <div class="contact-note">
+                  So if you are interested in any of our properties please contact us via email and we will get back in touch ASAP!
                 </div>
-                <button class="contact-button" onclick="window.location.href='mailto:EMAIL-greenkeyestates@outlook.com?subject=Viewing request'">Contact us</button>
+                <button class="contact-button" type="button" onclick="showContactEmail()">Contact us</button>
               </div>
               <div class="contact-card">
                 <div>
@@ -627,48 +883,89 @@
           </div>
         </article>
       </div>
-
-      <section class="gallery">
-        <h3>Thackwood photo tour</h3>
-        <div class="scroll-gallery">
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Thackwood living area">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Thackwood bedroom interior">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="Thackwood conservatory">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Thackwood kitchen with island">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Thackwood garden view">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Thackwood sitting room">
-          </div>
-          <div class="gallery-item">
-            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80" alt="Thackwood exterior view">
-          </div>
-        </div>
-      </section>
     </main>
 
+    <section class="gallery">
+      <h3>Thackwood photo tour</h3>
+      <div class="scroll-gallery">
+        <figure class="gallery-item">
+          <img src="images/thackwood-front.jpg" alt="Thackwood front view">
+          <figcaption>Front elevation with sea-facing garden and driveway access.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-frontgardens.jpg" alt="Thackwood gardens and grounds">
+          <figcaption>Private garden and outdoor terrace overlooking the grounds.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-floorplan.jpg" alt="Thackwood floorplan">
+          <figcaption>Floorplan illustrating the generous layout across both levels.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-dinning%20room.jpg" alt="Thackwood dining room">
+          <figcaption>Dining room with natural light and easy flow to the rear garden.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-kitchen.jpg" alt="Thackwood kitchen">
+          <figcaption>Contemporary kitchen with breakfast area and island workspace.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-kitchenfull.jpg" alt="Thackwood full kitchen view">
+          <figcaption>Full view of the fitted kitchen and prep space.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-livingroom.jpg" alt="Thackwood living room">
+          <figcaption>Comfortable living area with a feature fireplace and abundant light.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-pool.jpg" alt="Thackwood pool conservatory">
+          <figcaption>Large conservatory space ideal for entertaining or relaxing.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-rasberry%20room.jpg" alt="Thackwood raspberry room">
+          <figcaption>Unique room with character features and stylish decor.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-second%20sea.jpg" alt="Thackwood sea view from second floor">
+          <figcaption>Second-floor sea view capturing the coastal setting.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-inhouse%20sea%20.jpg" alt="Thackwood sea view inside the house">
+          <figcaption>Interior view with sweeping sea vistas from the home.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-inside%202%20sea.jpg" alt="Thackwood second sea view interior">
+          <figcaption>Bright interior room with a second sea-facing window.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-teracotta.jpg" alt="Thackwood terracotta interior detail">
+          <figcaption>Warm terracotta tones and natural finishes inside the home.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-downstairs%20bed.jpg" alt="Thackwood downstairs bedroom">
+          <figcaption>Downstairs bedroom offering flexible accommodation for guests.</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/thackwood-green.jpg" alt="Thackwood green detail interior">
+          <figcaption>Decorative green feature detail bringing calm and style.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section">
-      <h3>Why GreenKeyEstates?</h3>
-      <p>GreenKeyEstates focuses on quality over quantity. This streamlined property site delivers an easy, elegant experience with the perfect home preview, compelling visuals, and an effortless path to connect directly with our team.</p>
+      <h3>Why GreenEstates?</h3>
+      <p>GreenEstates focuses on quality over quantity. This streamlined property site delivers an easy, elegant experience with the perfect home preview, compelling visuals, and an effortless path to connect directly with our team.</p>
       <div class="map">
         <div>
           <strong>Mount Pleasant East, RobinHoodsBay, North Yorkshire</strong>
           <p>Location preview coming soon — ideal for families and commuters seeking seaside countryside living.</p>
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:24px;">
+        </div>
+      </div>
+      <div id="reviews" style="display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:24px;">
         <div>
           <h3>Client reviews</h3>
-          <p>See how GreenKeyEstates makes it easy to showcase premium properties with professionalism and impact.</p>
+          <p>See how GreenEstates makes it easy to showcase premium properties with professionalism and impact.</p>
         </div>
-        <button class="review-button" onclick="window.location.href='mailto:EMAIL-greenkeyestates@outlook.com?subject=Leave a review'">Leave a review</button>
+        <button class="review-button" type="button" onclick="showReviewEmail()">Leave a review</button>
       </div>
       <div class="reviews">
         <article class="review-card">
@@ -697,10 +994,122 @@
 
     <footer>
       <div class="footer-content">
-        <div>© 2026 GreenKeyEstates. One premium property listing with a personal service.</div>
-        <div><a href="mailto:EMAIL-greenkeyestates@outlook.com">EMAIL-greenkeyestates@outlook.com</a></div>
+        <div>© 2026 GreenEstates. One premium property listing with a personal service.</div>
+        <div><a href="mailto:greenestates@outlook.com">greenestates@outlook.com</a></div>
       </div>
     </footer>
   </div>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-content">
+      <button class="image-modal-close" id="imageModalClose" aria-label="Close image overlay">×</button>
+      <img id="imageModalImg" src="" alt="Expanded property photo">
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('imageModalImg');
+    const modalClose = document.getElementById('imageModalClose');
+
+    document.querySelectorAll('.gallery-item img').forEach((img) => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+    };
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('siteSearch');
+    const searchPostcode = document.getElementById('sitePostcode');
+    const searchFeedback = document.getElementById('searchFeedback');
+    const contactEmail = 'greenestates@outlook.com';
+
+    const openEmailWithFallback = (subject) => {
+      const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}`;
+
+      try {
+        window.location.href = mailtoUrl;
+      } catch (error) {
+        // Fallback for environments where mailto is blocked.
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(contactEmail)}&su=${encodeURIComponent(subject)}`;
+        window.open(gmailUrl, '_blank', 'noopener');
+      }
+
+      searchFeedback.textContent = `If your email app did not open, email us at ${contactEmail}.`;
+    };
+
+    const showContactEmail = () => {
+      const shouldOpenEmailApp = window.confirm(`Email us at ${contactEmail}.\n\nPress OK to open your email app, or Cancel to close.`);
+      if (shouldOpenEmailApp) {
+        openEmailWithFallback('Property enquiry');
+      }
+    };
+
+    const showReviewEmail = () => {
+      openEmailWithFallback('Leave a review');
+    };
+
+    window.showContactEmail = showContactEmail;
+    window.showReviewEmail = showReviewEmail;
+    const propertyCards = Array.from(document.querySelectorAll('.property-card')).map((card) => {
+      const title = card.querySelector('h2')?.textContent.toLowerCase() || '';
+      const details = Array.from(card.querySelectorAll('.property-details p, .property-meta, .feature, .badge'))
+        .map((el) => el.textContent.toLowerCase())
+        .join(' ');
+      return { card, title, details };
+    });
+
+    searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = searchInput.value.trim().toLowerCase();
+      const postcode = searchPostcode.value.trim().toLowerCase();
+
+      if (!query && !postcode) {
+        propertyCards.forEach(({ card }) => {
+          card.style.display = '';
+        });
+        searchFeedback.textContent = 'Search for houses by name, feature, or postcode.';
+        return;
+      }
+
+      const matches = propertyCards.filter(({ title, details }) => {
+        const queryMatch = query ? title.includes(query) || details.includes(query) : true;
+        const postcodeMatch = postcode ? title.includes(postcode) || details.includes(postcode) : true;
+        return queryMatch && postcodeMatch;
+      });
+      propertyCards.forEach(({ card }) => {
+        card.style.display = 'none';
+      });
+
+      if (matches.length === 0) {
+        searchFeedback.textContent = `No homes found for "${searchInput.value}" ${postcode ? `and postcode "${searchPostcode.value}"` : ''}. Try another search.`;
+      } else {
+        matches.forEach(({ card }) => {
+          card.style.display = '';
+        });
+        const countText = matches.length === 1 ? '1 result' : `${matches.length} results`;
+        searchFeedback.textContent = `Showing ${countText} for "${searchInput.value || 'any'}"${postcode ? ` and postcode "${searchPostcode.value}"` : ''}.`;
+      }
+    });
+  </script>
 </body>
 </html>
