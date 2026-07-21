@@ -450,6 +450,68 @@
       line-height: 1.45;
     }
 
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-form label {
+      display: grid;
+      gap: 6px;
+      color: #1f3526;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      border: 1px solid rgba(56, 106, 79, 0.24);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #ffffff;
+      color: var(--text);
+      font: inherit;
+      transition: border-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    .contact-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56, 106, 79, 0.14);
+    }
+
+    .send-message {
+      justify-self: start;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 14px;
+      padding: 14px 24px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      box-shadow: 0 16px 30px rgba(56, 106, 79, 0.22);
+    }
+
+    .send-message:hover {
+      transform: translateY(-1px);
+      background: #2f5b43;
+      box-shadow: 0 18px 36px rgba(56, 106, 79, 0.28);
+    }
+
     .contact-button {
       background: var(--accent);
       border: none;
@@ -748,6 +810,15 @@
       .contact-card {
         grid-template-columns: 1fr;
       }
+
+      .contact-form .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .send-message {
+        width: 100%;
+        justify-self: stretch;
+      }
     }
   </style>
 </head>
@@ -862,12 +933,33 @@
             <div class="contacts">
               <div class="contact-card">
                 <div>
-                  <strong>Contact</strong>
+                  <strong>Contact us</strong>
                 </div>
                 <div class="contact-note">
-                  So if you are interested in any of our properties please contact us via email and we will get back in touch ASAP!
+                  Send us your details and one of our agents will get back to you shortly.
                 </div>
-                <button class="contact-button" type="button" onclick="showContactEmail()">Contact us</button>
+                <form class="contact-form" name="contact" method="POST" data-netlify="true">
+                  <input type="hidden" name="form-name" value="contact">
+                  <div class="form-row">
+                    <label for="contactName">
+                      Name
+                      <input id="contactName" name="name" type="text" required>
+                    </label>
+                    <label for="contactEmail">
+                      Email
+                      <input id="contactEmail" name="email" type="email" required>
+                    </label>
+                  </div>
+                  <label for="contactPhone">
+                    Phone Number
+                    <input id="contactPhone" name="phone" type="tel" required>
+                  </label>
+                  <label for="contactMessage">
+                    Message
+                    <textarea id="contactMessage" name="message" required></textarea>
+                  </label>
+                  <button class="send-message" type="submit">Send Message</button>
+                </form>
               </div>
               <div class="contact-card">
                 <div>
@@ -995,7 +1087,7 @@
     <footer>
       <div class="footer-content">
         <div>© 2026 GreenEstates. One premium property listing with a personal service.</div>
-        <div><a href="mailto:greenestates2026@outlook.com">greenestates2026@outlook.com</a></div>
+        <div>greenestates2026@outlook.com</div>
       </div>
     </footer>
   </div>
