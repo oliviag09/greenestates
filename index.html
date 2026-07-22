@@ -1130,6 +1130,7 @@
     });
 
     const searchForm = document.getElementById('searchForm');
+    const contactForm = document.querySelector('form[name="contact"]');
     const searchInput = document.getElementById('siteSearch');
     const searchPostcode = document.getElementById('sitePostcode');
     const searchFeedback = document.getElementById('searchFeedback');
@@ -1202,6 +1203,40 @@
         searchFeedback.textContent = `Showing ${countText} for "${searchInput.value || 'any'}"${postcode ? ` and postcode "${searchPostcode.value}"` : ''}.`;
       }
     });
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const payload = {
+          name: formData.get('name')?.toString().trim() || '',
+          email: formData.get('email')?.toString().trim() || '',
+          phone: formData.get('phone')?.toString().trim() || '',
+          message: formData.get('message')?.toString().trim() || ''
+        };
+
+        try {
+          const response = await fetch('/.netlify/functions/send-email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error('Email function request failed.');
+          }
+
+          contactForm.reset();
+          searchFeedback.textContent = 'Thanks, your message has been sent.';
+        } catch (error) {
+          // Backup: submit through Netlify Forms if function email send fails.
+          contactForm.submit();
+        }
+      });
+    }
   </script>
 </body>
 </html>
