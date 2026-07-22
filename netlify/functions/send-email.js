@@ -119,12 +119,17 @@ exports.handler = async (event) => {
       body: JSON.stringify({ message: 'Email sent successfully' })
     };
   } catch (error) {
-    return {
-      statusCode: 500,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ error: 'Unexpected server error' })
-    };
-  }
+  console.error("ERROR:", error);
+
+  return {
+    statusCode: 500,
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      error: error.message,
+      stack: error.stack
+    })
+  };
+}
 };
